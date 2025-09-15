@@ -1,0 +1,353 @@
+/* LoginSignup.css */
+
+.login-page-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Animated background elements */
+  .login-page-container::before,
+  .login-page-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(0, 188, 212, 0.1), rgba(38, 198, 218, 0.15));
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .login-page-container::before {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -150px;
+    animation-delay: 0s;
+  }
+  
+  .login-page-container::after {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    left: -100px;
+    animation-delay: 4s;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-30px) rotate(180deg);
+    }
+  }
+  
+  .loginsignup {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 60px rgba(0, 188, 212, 0.15);
+    position: relative;
+    z-index: 2;
+    animation: slideUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(60px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .loginsignup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00bcd4, #26c6da, #4dd0e1);
+    border-radius: 25px 25px 0 0;
+  }
+  
+  .loginsignup h1 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #006064;
+    margin-bottom: 40px;
+    position: relative;
+    animation: fadeInDown 0.6s ease-out 0.2s both;
+  }
+  
+  .loginsignup h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #00bcd4, #26c6da);
+    border-radius: 2px;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .loginsignup-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .loginsignup-fields input {
+    padding: 18px 20px;
+    border: 2px solid #e0f2f1;
+    border-radius: 15px;
+    font-size: 16px;
+    color: #006064;
+    background: rgba(240, 253, 255, 0.8);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    outline: none;
+    position: relative;
+  }
+  
+  .loginsignup-fields input::placeholder {
+    color: #80cbc4;
+    font-weight: 400;
+  }
+  
+  .loginsignup-fields input:focus {
+    border-color: #00bcd4;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 25px rgba(0, 188, 212, 0.15);
+    transform: translateY(-3px);
+  }
+  
+  .loginsignup-fields input:hover {
+    border-color: #4dd0e1;
+    transform: translateY(-1px);
+  }
+  
+  .loginsignup button {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #00bcd4 0%, #26c6da 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+    animation: fadeIn 0.6s ease-out 0.6s both;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .loginsignup button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+  }
+  
+  .loginsignup button:hover::before {
+    left: 100%;
+  }
+  
+  .loginsignup button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 188, 212, 0.4);
+    background: linear-gradient(135deg, #26c6da 0%, #4dd0e1 100%);
+  }
+  
+  .loginsignup button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .loginsignup-login {
+    text-align: center;
+    color: #4db6ac;
+    font-size: 15px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s ease-out 0.8s both;
+  }
+  
+  .loginsignup-login span {
+    color: #00bcd4;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .loginsignup-login span:hover {
+    color: #006064;
+    transform: scale(1.05);
+    text-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+  }
+  
+  .loginsignup-agree {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    animation: fadeIn 0.6s ease-out 1s both;
+    padding: 15px;
+    background: rgba(240, 253, 255, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 188, 212, 0.1);
+  }
+  
+  .loginsignup-agree input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #00bcd4;
+    cursor: pointer;
+    margin-top: 2px;
+    transition: transform 0.2s ease;
+  }
+  
+  .loginsignup-agree input[type="checkbox"]:hover {
+    transform: scale(1.1);
+  }
+  
+  .loginsignup-agree p {
+    font-size: 13px;
+    color: #006064;
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .login-page-container {
+      padding: 15px;
+    }
+    
+    .loginsignup {
+      padding: 40px 25px;
+      border-radius: 20px;
+    }
+    
+    .loginsignup h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    
+    .loginsignup-fields {
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .loginsignup-fields input {
+      padding: 15px 18px;
+      font-size: 15px;
+    }
+    
+    .loginsignup button {
+      padding: 15px;
+      font-size: 16px;
+    }
+    
+    .loginsignup-agree {
+      padding: 12px;
+    }
+    
+    .loginsignup-agree p {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .loginsignup {
+      padding: 30px 20px;
+    }
+    
+    .loginsignup h1 {
+      font-size: 24px;
+    }
+    
+    .loginsignup-fields input {
+      padding: 12px 15px;
+      font-size: 14px;
+    }
+    
+    .loginsignup button {
+      padding: 12px;
+      font-size: 15px;
+    }
+  }
+  
+  /* Custom scrollbar for mobile */
+  @media (max-width: 768px) {
+    .login-page-container {
+      overflow-y: auto;
+    }
+    
+    .login-page-container::-webkit-scrollbar {
+      width: 4px;
+    }
+    
+    .login-page-container::-webkit-scrollbar-track {
+      background: rgba(0, 188, 212, 0.1);
+    }
+    
+    .login-page-container::-webkit-scrollbar-thumb {
+      background: #00bcd4;
+      border-radius: 2px;
+    }
+  }

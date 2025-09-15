@@ -1,0 +1,470 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Popular Products Section */
+.popular {
+  width: 100%;
+  padding: 5rem 2rem;
+  background: 
+    linear-gradient(135deg, #f8fafc 0%, #e2e8f0 30%, #f1f5f9 70%, #f8fafc 100%),
+    radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Elements */
+.popular::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(45deg, rgba(14, 165, 233, 0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(6, 182, 212, 0.02) 25%, transparent 25%);
+  z-index: 1;
+}
+
+@keyframes backgroundMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+/* Section Title */
+.popular h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  animation: titleSlideIn 1s ease-out;
+}
+
+@keyframes titleSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Gradient text effect on title */
+.popular h2::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #0ea5e9, #06b6d4, #22d3ee, #0891b2);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Decorative HR */
+.popular hr {
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, #0ea5e9 25%, #06b6d4 50%, #22d3ee 75%, transparent 100%);
+  border: none;
+  border-radius: 2px;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 10;
+  animation: hrExpand 1.2s ease-out 0.5s both;
+}
+
+@keyframes hrExpand {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 200px;
+    opacity: 1;
+  }
+}
+
+/* Glowing effect for HR */
+.popular hr::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -4px;
+  right: -4px;
+  bottom: -2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.3) 25%, rgba(6, 182, 212, 0.3) 50%, rgba(34, 211, 238, 0.3) 75%, transparent 100%);
+  border-radius: 4px;
+  z-index: -1;
+  animation: hrGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes hrGlow {
+  0% { opacity: 0.5; transform: scaleY(1); }
+  100% { opacity: 1; transform: scaleY(1.5); }
+}
+
+/* Popular Items Grid */
+.popular-item {
+  display: grid;
+  height:600px ;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  animation: gridFadeIn 1s ease-out 0.8s both;
+}
+
+@keyframes gridFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Individual Product Cards */
+.popular-item > div {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%),
+    linear-gradient(45deg, rgba(14, 165, 233, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 
+    0 8px 32px rgba(14, 165, 233, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Staggered animation for cards */
+.popular-item > div:nth-child(1) { animation: cardPopIn 0.8s ease-out 1s both; }
+.popular-item > div:nth-child(2) { animation: cardPopIn 0.8s ease-out 1.2s both; }
+.popular-item > div:nth-child(3) { animation: cardPopIn 0.8s ease-out 1.4s both; }
+.popular-item > div:nth-child(4) { animation: cardPopIn 0.8s ease-out 1.6s both; }
+.popular-item > div:nth-child(5) { animation: cardPopIn 0.8s ease-out 1.8s both; }
+.popular-item > div:nth-child(6) { animation: cardPopIn 0.8s ease-out 2s both; }
+.popular-item > div:nth-child(7) { animation: cardPopIn 0.8s ease-out 2.2s both; }
+.popular-item > div:nth-child(8) { animation: cardPopIn 0.8s ease-out 2.4s both; }
+
+@keyframes cardPopIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9) rotateX(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+/* Card Hover Effects */
+.popular-item > div:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 
+    0 25px 60px rgba(14, 165, 233, 0.25),
+    0 15px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+/* Animated overlay on hover */
+.popular-item > div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, 
+      rgba(14, 165, 233, 0.1) 0%, 
+      rgba(6, 182, 212, 0.08) 50%, 
+      rgba(34, 211, 238, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 24px;
+  z-index: 1;
+}
+
+.popular-item > div:hover::before {
+  opacity: 1;
+}
+
+/* Floating elements on hover */
+.popular-item > div::after {
+  content: '✨';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: translateY(10px) rotate(-15deg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.popular-item > div:hover::after {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(5deg); }
+  75% { transform: scale(0.9) rotate(-5deg); }
+}
+
+/* Product Image Styling */
+.popular-item img {
+  width: 100%;
+  height: 300px;
+  object-fit:contain;
+  object-position: center;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.popular-item > div:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1) saturate(1.2) contrast(1.05);
+}
+
+/* Product Details */
+.popular-item h3,
+.popular-item p {
+  position: relative;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+/* Product Name */
+.popular-item h3:first-of-type {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.popular-item > div:hover h3:first-of-type {
+  color: #0ea5e9;
+  text-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+}
+
+/* Price Styling */
+.popular-item p {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0ea5e9;
+  margin-bottom: 0.5rem;
+}
+
+.popular-item > div:hover p {
+  color: #0891b2;
+  text-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+  animation: priceGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes priceGlow {
+  0% { text-shadow: 0 0 20px rgba(14, 165, 233, 0.4); }
+  100% { text-shadow: 0 0 30px rgba(14, 165, 233, 0.6); }
+}
+
+/* Add Quick View Button */
+.popular-item > div {
+  position: relative;
+}
+
+.popular-item > div:hover {
+  cursor: pointer;
+}
+
+/* Quick action buttons on hover */
+.popular-item > div .quick-actions {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.popular-item > div:hover .quick-actions {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.quick-actions button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-actions .btn-primary {
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  color: white;
+}
+
+.quick-actions .btn-primary:hover {
+  background: linear-gradient(135deg, #0891b2, #0e7490);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+}
+
+.quick-actions .btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0ea5e9;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.quick-actions .btn-secondary:hover {
+  background: rgba(14, 165, 233, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .popular-item {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .popular {
+    padding: 4rem 1.5rem;
+  }
+  
+  .popular h2 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 0.8rem;
+  }
+  
+  .popular hr {
+    width: 150px;
+    margin-bottom: 2.5rem;
+  }
+  
+  .popular-item {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.8rem;
+  }
+  
+  .popular-item img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popular {
+    padding: 3rem 1rem;
+  }
+  
+  .popular-item {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .popular-item > div {
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+  
+  .popular-item img {
+    height: 220px;
+  }
+}
+
+/* Loading Animation */
+.popular-item.loading > div {
+  animation: skeletonPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes skeletonPulse {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Accessibility */
+.popular-item > div:focus-within {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 4px;
+}
+
+/* Premium visual effects */
+.popular-item > div {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect on hover */
+.popular-item > div .shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent);
+  transition: left 0.8s ease;
+  z-index: 4;
+}
+
+.popular-item > div:hover .shine {
+  left: 100%;
+}
+
+/* Additional floating animation for the entire section */
+@keyframes sectionFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.popular {
+  animation: sectionFloat 10s ease-in-out infinite;
+}

@@ -1,5 +1,7 @@
 body{
     font-family: 'Poppins', sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 body::-webkit-scrollbar {
     display: none;

@@ -9,7 +9,9 @@
   position: relative;
   overflow: hidden;
 }
-
+body::-webkit-scrollbar {
+    display: none;
+}
 /* Background decorative elements */
 .shop-category::before {
   content: '';
